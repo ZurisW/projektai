@@ -21,6 +21,7 @@ class Post extends Model
         'category_id',
         'title',
         'content',
+        'date',
         'price',
         'image',
         'star'

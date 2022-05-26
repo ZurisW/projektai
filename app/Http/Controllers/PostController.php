@@ -14,8 +14,8 @@ class PostController extends Controller
 {
     public function index(Request $request){
 
-        return view('index', [
-            'posts' => Post::orderBy('id')->pagination(16)
+        return view('categories.index', [
+            'posts' => Post::orderBy('id')->pagination(30)
         ]);
     }
 

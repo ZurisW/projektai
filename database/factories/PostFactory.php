@@ -17,12 +17,13 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => random_int(1,100),
+            'user_id' => random_int(1, 100),
             'city_id' => random_int(1, 4),
-            'category_id' => random_int(1, 12),
+            'category_id' => random_int(1, 20),
             'title' => $this->faker->text(),
             'content' => $this->faker->text(),
-            'price' => $this->faker->numberBetween($min = 20, $max = 6000),
+            'date' => $this->faker->dateTimeBetween('-2 week', '+2 week'),
+            'price' => $this->faker->numberBetween(60, 200),
             'image' => $this->faker->imageUrl(),
             'star' => $this->faker->boolean()
         ];

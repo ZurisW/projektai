@@ -1,4 +1,4 @@
-<footer class="mt-5 bg-dark text-center text-white footer">
+<footer class="mt-auto bg-dark text-center text-white footer">
     <div class="container p-4 pb-0">
 
         <section class="mb-4">

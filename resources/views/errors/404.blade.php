@@ -4,11 +4,17 @@
 <body class="d-flex flex-column min-vh-100">
     @include('shared.nav')
 
-    @include('shared.search')
-
-    @include('index.categories')
-
-    @include('index.advertisements')
+    <div class="page-wrap d-flex flex-row align-items-center mt-5 mb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 text-center">
+                    <span class="display-1 d-block">404</span>
+                    <div class="mb-4lead">The page you are looking for was not found.</div>
+                    <a href="/" class="btn btn-link text-dark">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

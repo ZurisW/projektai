@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('title');
             $table->text('content');
+            $table->date('date');
             $table->unsignedBigInteger('price');
             $table->string('image');
             $table->boolean('star');

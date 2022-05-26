@@ -27,3 +27,6 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', [HomeController::class, 'index']);
+
+// Route::get('/offers', [CategoryController::class, 'index']);
+Route::get('/offers/{id}', [CategoryController::class, 'show'])->name('categories.show');

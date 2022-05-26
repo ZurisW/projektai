@@ -1,14 +1,11 @@
 <!doctype html>
 <html lang="en">
 @include('shared.header')
-<body class="d-flex flex-column min-vh-100">
+<body>
     @include('shared.nav')
 
-    @include('shared.search')
 
-    @include('index.categories')
 
-    @include('index.advertisements')
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
