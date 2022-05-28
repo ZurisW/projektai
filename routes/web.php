@@ -30,3 +30,5 @@ Route::get('/', [HomeController::class, 'index']);
 
 // Route::get('/offers', [CategoryController::class, 'index']);
 Route::get('/offers/{id}', [CategoryController::class, 'show'])->name('categories.show');
+
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');

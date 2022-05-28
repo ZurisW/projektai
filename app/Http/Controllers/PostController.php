@@ -14,14 +14,16 @@ class PostController extends Controller
 {
     public function index(Request $request){
 
-        return view('categories.index', [
+        return view('posts.index', [
             'posts' => Post::orderBy('id')->pagination(30)
         ]);
     }
 
     public function show($id)
     {
-
+        return view('posts.show', [
+            'post' => Post::all()->get($id-1)
+        ]);
     }
 
     public function edit($id)

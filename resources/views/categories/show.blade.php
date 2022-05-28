@@ -11,11 +11,13 @@
 
         @include('categories.filter')
 
+        <hr>
+
         <h3 class="text-left mb-0">We found
-        @if (count($posts) > 100)
+        @if (count($posts) > 50)
+            over 50 advertisements!
+        @elseif (count($posts) > 100)
             over 100 advertisements!
-        @elseif (count($posts) > 1000)
-            over 1000 advertisements!
         @else
             many advertisements!
         @endif</h3>
@@ -23,11 +25,9 @@
             @forelse ($posts as $p)
                 <div class="item col-xl-4 col-lg-6">
                     <div class="thumbnail">
-                        {{-- {{route('posts.show', ['id' => $p->id])}} --}}
                         <div class="caption mt-3 mb-3">
-                            <a href="" class="text-decoration-none text-reset">
+                            <a href="{{route('posts.show', ['id' => $p->id])}}" class="text-decoration-none text-reset">
                                 <img class="group list-group-image img-thumbnail" src="{{ $p->image }}" alt="" />
-
                                 <h4 class="group inner list-group-item-heading ptyt"><span>{{ $p->title }}</span></h4>
                             </a>
                             <div class="row mt-5">
