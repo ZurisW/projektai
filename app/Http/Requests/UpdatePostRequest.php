@@ -26,7 +26,6 @@ class UpdatePostRequest extends FormRequest
      */
     public function rules()
     {
-        // 'code' => 'required|unique:countries,code,'.$this->country->id.'|max:3',
         return [
             'user_id' => 'required',
             'city_id' => 'required',
