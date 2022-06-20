@@ -4,12 +4,16 @@
         @forelse ($cheap_posts as $p)
             <div class="item col-xl-4 col-lg-6">
                 <div class="thumbnail">
-                    {{-- {{route('posts.show', ['id' => $p->id])}} --}}
                     <div class="caption mt-3 mb-3">
-                        <a href="" class="text-decoration-none text-reset">
-                            <img class="group list-group-image img-thumbnail" src="{{ $p->image }}" alt="" />
+                        <a href="{{route('posts.show', $p->id)}}" class="text-decoration-none text-reset">
+                            @if ( !empty($p->image))
+                                <img class="group list-group-image img-thumbnail" src="{{ $p->image }}" alt="" />
+                            @else
+                                <img class="group list-group-image img-thumbnail" src="https://www.staticwhich.co.uk/static/images/products/no-image/no-image-available.png" alt="" />
+                            @endif
 
-                            <h4 class="group inner list-group-item-heading ptyt"><span>{{ $p->title }}</span></h4>
+
+                            <h4 class="group inner list-group-item-heading ptyt" style="height: 57.6px;"><span>{{ $p->title }}</span></h4>
 
                         </a>
                         {{-- <p class="group inner mb-4 popis">

@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,15 @@ use App\Http\Controllers\IndexController;
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/posts', [PostController::class, 'search'])->name('posts.search');
 
-Route::get('/', [HomeController::class, 'index']);
-
-// Route::get('/offers', [CategoryController::class, 'index']);
 Route::get('/offers/{id}', [CategoryController::class, 'show'])->name('categories.show');
 
-Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+// Route::post('/', [HomeController::class, 'search'])->name('categories.search');
+
+Route::get('/', [HomeController::class, 'index'])->name('index');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
+Route::resource('posts', PostController::class); //->middleware('auth')
+

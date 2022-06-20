@@ -29,7 +29,7 @@ class HomeController extends Controller
         return view('index', [
             'cities' => City::all(),
             'categories_12' => Category::orderBy('id')->take(12)->get(),
-            'posts' => Post::all(),
+            'posts' => Post::orderBy('id', 'desc')->take(6)->get(),
             'cheap_posts' => Post::orderBy('price')->take(6)->get()
         ]);
     }

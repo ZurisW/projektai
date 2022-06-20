@@ -15,30 +15,22 @@
                     <a class="nav-link mx-4" href="#!"><i class="fas fa-heart pe-2"></i>Favourites</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-4" href="#!">My MTS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ asset('storage/img/admin.jpg')}}" class="rounded-circle shadow-4"
-                        style="width: 50px;" alt="Avatar" /></a>
+                    @if (Auth::check())
+                        <a class="nav-link mx-4" href="{{ route('logout') }}">Hello, {{Auth::user()->name}} </a>
+                    @else
+                        <a class="nav-link mx-4" href="{{ route('login') }}">My MTS </a>
+                    @endif
                 </li>
+                @if (Auth::check())
                 <li class="nav-item ms-3">
-                    <a class="btn btn-outline-light btn-rounded" href="#!"><i class="fas fa-plus-circle pe-2"></i>Post an ad</a>
+                    <a class="btn btn-outline-light btn-rounded" href="{{ route('posts.create') }}"><i class="fas fa-plus-circle pe-2"></i>Post an ad</a>
                 </li>
+                @else
+                <li class="nav-item ms-3">
+                    <a class="btn btn-outline-light btn-rounded" href="{{ route('login') }}"><i class="fas fa-plus-circle pe-2"></i>Login to post an ad</a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>
 </nav>
-
-{{-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item">
-            <a class="nav-link mx-4" href="#!"><i class="fas fa-plus-circle pe-2"></i>Messages</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link mx-4" href="#!"><i class="fas fa-heart pe-2"></i>Favourites</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link mx-4" href="#!"><i class='fas fa-bell pe-2'></i>My MTS</a>
-        </li>
-        <li class="nav-item ms-3">
-            <a class="btn btn-light btn-rounded" href="#!"><i class="fas fa-plus-circle pe-2"></i>Post an ad</a>
-        </li>
-    </ul>
-</div> --}}

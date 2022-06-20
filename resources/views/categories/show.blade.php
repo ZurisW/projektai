@@ -26,9 +26,13 @@
                 <div class="item col-xl-4 col-lg-6">
                     <div class="thumbnail">
                         <div class="caption mt-3 mb-3">
-                            <a href="{{route('posts.show', ['id' => $p->id])}}" class="text-decoration-none text-reset">
+                            <a href="{{route('posts.show', $p->id)}}" class="text-decoration-none text-reset">
+                                @if ( !empty($p->image))
                                 <img class="group list-group-image img-thumbnail" src="{{ $p->image }}" alt="" />
-                                <h4 class="group inner list-group-item-heading ptyt"><span>{{ $p->title }}</span></h4>
+                            @else
+                                <img class="group list-group-image img-thumbnail" src="https://www.staticwhich.co.uk/static/images/products/no-image/no-image-available.png" alt="" />
+                            @endif
+                                <h4 class="group inner list-group-item-heading ptyt" style="height: 57.6px;"><span>{{ $p->title }}</span></h4>
                             </a>
                             <div class="row mt-5">
                                 <p class="lead mb-0">{{$p->city->name}}, {{ $p->date }}</p>

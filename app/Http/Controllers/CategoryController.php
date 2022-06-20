@@ -31,6 +31,18 @@ class CategoryController extends Controller
         ]);
     }
 
+    public function search(Request $request){
+        if($request->get('title')!=null and $request->get('city_id')!=null){
+
+            return view('index', [
+                'cities' => City::all(),
+                'categories_12' => Category::orderBy('id')->take(12)->get(),
+                'posts' => Post::where("title", "LIKE", $request->get('title'))->where("city_id", $request->get('city_id')),
+                'cheap_posts' => Post::orderBy('price')->take(6)->get()
+            ]);
+        }
+    }
+
     public function edit($id)
     {
         //Log::channel('stderr')->debug($id);

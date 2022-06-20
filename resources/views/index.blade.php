@@ -2,7 +2,14 @@
 <html lang="en">
 @include('shared.header')
 <body class="d-flex flex-column min-vh-100">
+
     @include('shared.nav')
+
+    @if(session()->has('success'))
+        <div class="alert alert-dark text-center">
+            {{ session()->get('success') }}
+        </div>
+    @endif
 
     @include('shared.search')
 
